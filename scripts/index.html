@@ -1,0 +1,24 @@
+<html>
+
+    <body>
+        <h1> Bishal Gautamm</h1>
+        <h2> Bishal Gautamm</h2>
+        <button>Click me</button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                function createParagraph(){
+                    let para = document.createElement('p');
+                    para.textContent = 'You clicked this button';
+                    document.body.appendChild(para);
+                }
+
+                const buttons = document.querySelectorAll('button');
+                
+                for(let i = 0; i < buttons.length ; i++) {
+                    buttons[i].addEventListener('click', createParagraph);
+                }
+            });
+        </script>
+    </body>
+
+</html>
