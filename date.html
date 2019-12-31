@@ -24,32 +24,46 @@
             <option value="dec">December</option>
         </select>
         <div class='showDate'>
-            
+           <ul></ul>
         </div>
     <script>
         let divRef = document.querySelector('.showDate');
         let selectRef = document.querySelector('#month');
-        let date = new Date(2020,1,0);
+        var date = new Date(2020,1,1);
+        let ulRef = document.querySelector('.showDate ul')
 
         function showDate(){
+            ulRef.innerHTML = ''
             console.log('function called');
             switch (selectRef.value){
                 case 'jan': {
+                    date.setDate(0);
                     let days = date.getDate();
-                    console.log(days)
+                    // console.log(days)
                     for(i=1;i<days+1;i++){
-                        console.log(i);
+                        // console.log(i);
                         let pRef = document.createElement('button');
                         pRef.textContent = i;
-                        divRef.appendChild(pRef);
+                        ulRef.appendChild(pRef);
                     }
                     break;
                 }
                 case 'feb': {
-                    date.setMonth(2)
+                    date.setDate(0)
                     let days = date.getDate();
                     for(i=1;i<days+1;i++){
-                        let pRef = document.createElement('p');
+                        let pRef = document.createElement('button');
+                        pRef.textContent = i;
+                        pRef.backgroundColor='pink';
+                        divRef.appendChild(pRef)
+                    }
+                    break;
+                }
+                case 'march': {
+                    date.setDate(0)
+                    let days = date.getDate();
+                    for(i=1;i<days;i++){
+                        let pRef = document.createElement('button');
                         pRef.textContent = i;
                         pRef.backgroundColor='pink';
                         divRef.appendChild(pRef)
