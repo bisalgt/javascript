@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <label for="month"> Choose the month:</label>
+        <select id="month">
+            <option value="">Enter a month</option>
+            <option value="jan">January</option>
+            <option value="feb">Febuary</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="june">June</option>
+            <option value="july">July</option>
+            <option value="aug">August</option>
+            <option value="sep">September</option>
+            <option value="oct">October</option>
+            <option value="nov">November</option>
+            <option value="dec">December</option>
+        </select>
+        <div class='showDate'>
+            
+        </div>
+    <script>
+        let divRef = document.querySelector('.showDate');
+        let selectRef = document.querySelector('#month');
+        let date = new Date(2020,1,0);
+
+        function showDate(){
+            console.log('function called');
+            switch (selectRef.value){
+                case 'jan': {
+                    let days = date.getDate();
+                    console.log(days)
+                    for(i=1;i<days+1;i++){
+                        console.log(i);
+                        let pRef = document.createElement('button');
+                        pRef.textContent = i;
+                        divRef.appendChild(pRef);
+                    }
+                    break;
+                }
+                case 'feb': {
+                    date.setMonth(2)
+                    let days = date.getDate();
+                    for(i=1;i<days+1;i++){
+                        let pRef = document.createElement('p');
+                        pRef.textContent = i;
+                        pRef.backgroundColor='pink';
+                        divRef.appendChild(pRef)
+                    }
+                    break;
+                }
+                default :{
+                    console.log('no match');
+                    break;
+                }
+            }
+        }
+        // selectRef.onchange = showDate();
+        selectRef.addEventListener('change', showDate);
+    </script>
+</body>
+</html>

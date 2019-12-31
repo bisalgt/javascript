@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Swtich case : Document</title>
+</head>
+<body>
+    <label for="weather">Select the weather type today: </label>
+<select id="weather">
+  <option value="">--Make a choice--</option>
+  <option value="sunny">Sunny</option>
+  <option value="rainy">Rainy</option>
+  <option value="snowing">Snowing</option>
+  <option value="overcast">Overcast</option>
+</select>
+<select id="bgColor">
+  <option value="">--Make a choice--</option>
+  <option value="red">White</option>
+  <option value="pink">Black</option>
+</select>
+
+<p></p>
+
+<script>
+    let selectRef = document.querySelector('#weather');
+    let pRef = document.querySelector('p');
+    let bgRef = document.querySelector('#bgColor');    
+    let html = document.querySelector('html');
+  
+    let bgVal = bgRef.value;
+
+    bgRef.onchange = function (){
+        (bgRef.value==='red') ? (html.style.backgroundColor = 'red')
+        :(bgRef.value==='pink') ? (html.style.backgroundColor = 'pink')
+        :(html.style.backgroundColor = 'white');
+    }
+
+     function displayWeather() {
+        let selectVal = selectRef.value;
+        switch (selectVal){
+            case 'sunny': {
+                pRef.textContent = 'Its a suny day';
+                break;
+            }
+            case 'rainy': {
+                pRef.textContent = 'Its a rainy day';
+                break;
+            }
+            case 'snowing': {
+                pRef.textContent = 'Its a snowy day';
+                break;
+            }
+            case 'overcast': {
+                pRef.textContent = 'Its a overcast day';
+                break;
+            }
+            case '': {
+                pRef.textContent = 'Its an empty day';
+                break;
+            }
+        }
+    }
+
+    selectRef.addEventListener('change', displayWeather);
+</script>
+
+
+</body>
+</html>
