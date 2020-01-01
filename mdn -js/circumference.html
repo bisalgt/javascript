@@ -9,16 +9,19 @@
 <body>
     <lable for="inputID">Enter a value: </lable>
     <input id='inputID' type='text' value = 'Enter value'>
+    <p> Check event</p>
     <script>
         let divRef = document.createElement('div');
         document.body.appendChild(divRef);
-
+        let pCheckRef =  document.querySelector('p');
+        pCheckRef.onclick = () => {
+            console.log('paragraph clicked')
+        }
         let inputRef = document.querySelector('input');
         
         inputRef.onclick = () =>{
             inputRef.value = ''
         }
-        
         
         var pRef  = document.createElement('p');
         
