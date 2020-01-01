@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <lable for="inputID">Enter a value: </lable>
+    <input id='inputID' type='text' value = 'Enter value'>
+    <script>
+        let divRef = document.createElement('div');
+        document.body.appendChild(divRef);
+
+        let inputRef = document.querySelector('input');
+        
+        inputRef.onclick = () =>{
+            inputRef.value = ''
+        }
+        
+        
+        var pRef  = document.createElement('p');
+        
+        inputRef.onchange = () => {
+            var inputValue = inputRef.value;
+            if (isNaN(inputValue)){
+                pRef.textContent = 'Enter a Number instead';
+            } else{
+                pRef.textContent = 'the cube is '+ inputValue**3 + 'the square is '+ inputValue**2;
+            }
+            divRef.appendChild(pRef);
+            inputRef.value = '';
+            inputRef.focus(); 
+        }
+        
+    </script>
+</body>
+</html>
