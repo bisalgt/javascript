@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #calculator{
+            width: 200px;
+            background-color: aqua;
+            padding: 15px;
+            margin: auto;;
+            /* padding-inline: 5px; */
+            /* height: 150px; */
+        }
+        input{
+            height:70px;
+            width:180px;
+            /* margin: auto; */
+            /* padding: 5px; */
+        }
+        button{
+            height: 50px;
+            width: 50px;
+            margin: 5px;
+            /* margin: auto; */
+            
+        }
+        h1{
+            /* align-content: center; */
+            align-self: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div id='calculator'>
+        <input type="text">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+        <button>+</button>
+        <button>-</button>
+        <button>*</button>
+        <button>/</button>
+        <button>=</button>
+    </div>
+
+    <script>
+        var inputRef = document.querySelector('#calculator input');
+        var buttons = document.querySelectorAll('button');
+        var result = 0;
+        inputRef.textContent = ' ';
+        var i,j;
+        for(i,j=buttons.length; i<j;i++){
+            if(buttons[i].textContent != '='){
+                buttons[i].onclick = (e) => {
+                    console.log(result)
+                    console.log(e)
+                    console.log('-----',i)
+                    var val = e.target.textContent;
+                    if (!isNaN(Number(val))) {
+                        val = Number(val);
+                    }
+                    console.log(val)
+                    inputRef.value += val;
+                    if(!isNaN(val) && i == 0){
+                        console.log('first')
+                        result = val;
+                    }
+                    if(isNaN(val) && i == 0){
+                        console.log('Enter a number');
+                    } else if (isNaN(val) && val != '=') {
+                        switch (val) {
+                            case '+':
+                                result += Number(buttons[i+1])
+                                break;
+                            case '-':
+                                result -= Number(buttons[i+1])
+                                break;
+                            case '*':
+                                result *= Number(buttons[i+1])
+                                break;
+                            case '/':
+                                result /= Number(buttons[i+1])
+                                break;
+                        
+                            default:
+                                console.log('no nan matched')
+                                break;
+                        }
+                    } else if (isNaN(val) && val == '='){
+                        inputRef.value = result;
+                    }
+                }
+            }
+        }
+        console.log(result)
+    </script>
+
+</body>
+</html>
