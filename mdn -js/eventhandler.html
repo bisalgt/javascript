@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random color example — event handler property</title>
+    <style>
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Change color</button>
+    <script>
+      const btn = document.querySelector('button');
+      
+      function bgChange() {
+        const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        document.body.style.backgroundColor = rndCol;
+      }
+    //   btn.onfocus = bgChange; // when focusing to that dom element event is fired;
+    //   btn.onblur = bgChange; // after focus browser api triggers btn.onblur
+    // window.onkeyup = bgChange; // NO PARENTHESIS AT THE END OF FUNCTION     
+    // window.onkeyup = bgChange; // NO PARENTHESIS AT THE END OF FUNCTION     
+    // window.onkeyup = bgChange; // NO PARENTHESIS AT THE END OF FUNCTION     
+    // btn.ondblclick = bgChange; // triggers bgChange after double click on that button;
+    // btn.onkeydown = console.log('button pressed down');
+    // btn.onmouseover = bgChange; runs when moving cursor to the target
+    // btn.onmouseout = bgChange;
+    // btn.addEventListener('click', bgChange);
+    btn.removeEventListener('click', bgChange);
+    </script>
+  </body>
+</html>

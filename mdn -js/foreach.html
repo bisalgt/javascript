@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        let divRef = document.querySelectorAll('div');
+        function random(number) {
+            return Math.floor(Math.random()*number);
+        }
+        function bgChange(div) {
+            div.onclick = () => {
+                const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+                div.style.backgroundColor = rndCol;
+            }
+        }
+        divRef.forEach(bgChange);
+        divRef.forEach(()=>{ console.log('hey')});
+    </script>
+</body>
+</html>
