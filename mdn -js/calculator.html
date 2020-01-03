@@ -58,52 +58,43 @@
         var inputRef = document.querySelector('#calculator input');
         var buttons = document.querySelectorAll('button');
         var result = 0;
-        inputRef.textContent = ' ';
-        var i,j;
-        for(i,j=buttons.length; i<j;i++){
-            if(buttons[i].textContent != '='){
-                buttons[i].onclick = (e) => {
-                    console.log(result)
-                    console.log(e)
-                    console.log('-----',i)
-                    var val = e.target.textContent;
-                    if (!isNaN(Number(val))) {
-                        val = Number(val);
-                    }
-                    console.log(val)
-                    inputRef.value += val;
-                    if(!isNaN(val) && i == 0){
-                        console.log('first')
-                        result = val;
-                    }
-                    if(isNaN(val) && i == 0){
-                        console.log('Enter a number');
-                    } else if (isNaN(val) && val != '=') {
-                        switch (val) {
-                            case '+':
-                                result += Number(buttons[i+1])
-                                break;
-                            case '-':
-                                result -= Number(buttons[i+1])
-                                break;
-                            case '*':
-                                result *= Number(buttons[i+1])
-                                break;
-                            case '/':
-                                result /= Number(buttons[i+1])
-                                break;
-                        
-                            default:
-                                console.log('no nan matched')
-                                break;
-                        }
-                    } else if (isNaN(val) && val == '='){
-                        inputRef.value = result;
-                    }
+        var btnValue;
+        inputRef.value = '';
+        var i=0,j;
+        var count = 0;
+        var myString = '';
+        var myObj = {};
+        for (j=buttons.length; i < j; i++) {
+            buttons[i].addEventListener('click', btnCheck);
+        }
+
+        function btnCheck(e) {
+            btnValue =e.target.textContent;
+            console.log(count)
+            myObj[count] = btnValue;
+            console.log(myObj)
+            console.log(btnValue);
+            // console.log(typeof(btnValue)) // string
+            inputRef.value += btnValue;
+            myString  = inputRef.value;
+            if (btnValue === '='){
+                showOutput();
+            }
+            count += 1;
+        }
+
+        function showOutput(){
+            console.log(myString);
+            console.log(myObj);
+            var len = Object.keys(myObj).length
+            for (let i=0; i< len; i+=1){
+                if(!isNaN(Object.keys(myObj)[i])){
+                    myObj[i] = Number()
                 }
             }
         }
-        console.log(result)
+
+
     </script>
 
 </body>
