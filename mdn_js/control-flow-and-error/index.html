@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 10;
+
+        try{
+            console.log('inside try block');
+
+            if (a==10){
+                throw 'Error occured as match found';
+            }
+            console.log('no error');
+        } catch{
+            // console.log('error catched');
+            console.error('error catched');
+        } finally{
+            console.log('task to be done after the try catch such as closing the file on the server after opening it.');
+        }
+
+        // If the finally block returns a value, this value becomes the return value of the entire 
+        // try…catch…finally production, regardless of any return statements in the try and catch blocks:
+
+    </script>
+</body>
+</html>
