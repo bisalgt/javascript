@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //         0888 // 888 parsed as decimal
+        // 0777 // parsed as octal in non-strict mode (511 in decimal)
+        // Note that decimal literals can start with a zero (0) 
+        // followed by another decimal digit, but if every digit 
+        // after the leading 0 is smaller than 8, 
+        // the number gets parsed as an octal number
+            //   Exponentiation
+        var a = 1E3   // 1000
+        var b = 2e6   // 2000000
+        var c = 0.1e2 // 10
+
+        // Properties of built in number object.
+        
+        console.log(Number.MAX_VALUE)
+        var biggestNum = Number.MAX_VALUE;
+        var smallestNum = Number.MIN_VALUE;
+        var infiniteNum = Number.POSITIVE_INFINITY;
+        var negInfiniteNum = Number.NEGATIVE_INFINITY;
+        var notANum = Number.NaN;
+        //         Date object
+        // JavaScript does not have a date data type. However, you can use the Date object
+        //  and its methods to work with dates and times in your applications.
+        var today = new Date();
+        var endYear = new Date(1995, 11, 31, 23, 59, 59, 999); // Set day and month
+        endYear.setFullYear(today.getFullYear()); // Set year to this year
+        var msPerDay = 24 * 60 * 60 * 1000; // Number of milliseconds per day
+        var daysLeft = (endYear.getTime() - today.getTime()) / msPerDay;
+        var daysLeft = Math.round(daysLeft); //returns days left in the year
+
+        
+    </script>
+</body>
+</html>
