@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Regular Expression</h1>
+    <!-- Regular expressions are patterns used to match character combinations in strings. -->
+
+    <!-- Using a regular expression literal, which consists of a pattern enclosed between slashes, as follows: -->
+    <p>
+        Enter your phone number (with area code) and then click "Check".
+        <br>
+        The expected format is like ###-###-####.
+      </p>
+      <form action="#">
+        <input id="phone">
+          <button onclick="testInfo(document.getElementById('phone'));">Check</button>
+      </form>
+    
+    <script>
+        var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+        function testInfo(phoneInput) {
+        var OK = re.exec(phoneInput.value);
+        if (!OK) {
+            console.error(phoneInput.value + ' isn\'t a phone number with area code!'); 
+        } else {
+            console.log('Thanks, your phone number is ' + OK[0]);}
+        } 
+        var re1 = /ab+c/;
+        // Or calling the constructor function of the RegExp object, as follows
+        var re2 = new RegExp('ab+c');
+        var re3 = new RegExp('a*b');
+
+        var myInfo = 'my name is bishal gautam and i am not a terrorist.';
+        console.log(re3.test(myInfo)) // true // 
+
+        console.log(myInfo.search(re3))
+
+        var myRe = /d(b+)d/g;
+        var myArray = myRe.exec('cdbbdbsbz');
+
+        var re = /pattern/flags;
+// or
+
+        var re = new RegExp('pattern', 'flags');
+
+
+
+
+    </script>
+</body>
+</html>
